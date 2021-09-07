@@ -8,6 +8,8 @@
 #include <vector>
 #include <deque>
 
+#define MAX_BALLS 4
+#define INITIAL_LIVES 5
 /*
  * PongMode is a game mode that implements a single-player game of Pong.
  */
@@ -29,20 +31,26 @@ struct PongMode : Mode {
 
 	glm::vec2 left_paddle = glm::vec2(-court_radius.x + 0.5f, 0.0f);
 	glm::vec2 right_paddle = glm::vec2( court_radius.x - 0.5f, 0.0f);
+	glm::vec2 middle_paddle = glm::vec2(-court_radius.x + 4.0f, 0.0f);
 
-	glm::vec2 ball = glm::vec2(0.0f, 0.0f);
-	glm::vec2 ball_velocity = glm::vec2(-1.0f, 0.0f);
+	float total_elapsed = 0;	// Helper to spawn more balls
+	int direction = 1;			// current direction of middle paddle
+	int speed_tick = 0;			// ticks for speed increases
+	float time_score = 0;		// final time score
 
-	uint32_t left_score = 0;
-	uint32_t right_score = 0;
+	// we support max of 4 balls
+	std::vector<glm::vec2> balls;
+	std::vector<glm::vec2> ball_velocities;
+
+	uint32_t lives = INITIAL_LIVES;
 
 	float ai_offset = 0.0f;
 	float ai_offset_update = 0.0f;
 
 	//----- pretty gradient trails -----
 
-	float trail_length = 1.3f;
-	std::deque< glm::vec3 > ball_trail; //stores (x,y,age), oldest elements first
+	const float trail_length = 1.0f;
+	std::vector<std::deque< glm::vec3>> ball_trails; //stores (x,y,age), oldest elements first
 
 	//----- opengl assets / helpers ------
 

@@ -1,17 +1,22 @@
-# (TODO: your game's title)
+# TAKE COVERRR!!!
 
-Author: (TODO: your name)
+Author: Apoorv Gupta
 
-Design: (TODO: In two sentences or fewer, describe what is new and interesting about your game.)
+Design: Dodge all of them ever increasing balls with your teal paddle, while hiding behind cover (another paddle). Five lives to spare and balls become faster as time passes, how long can you survive?
 
 Screen Shot:
 
 ![Screen Shot](screenshot.png)
 
 How To Play:
+- Player paddle is teal.
+- Hide behind the paddle in front of the player paddle, that's the player's cover.
+- Lives are displayed on the top left corner.
+- The balls keep increasing so stay alert to dodge them all.
+- The ball trails are really useful for predicting
+- Be alert of balls that bounce behind the cover paddle, they are dangerous.
+- Final survival time score is displayed on the console
 
-(TODO: describe the controls and (if needed) goals/strategy.)
-
-Sources: (TODO: list a source URL for any assets you did not create yourself. Make sure you have a license for the asset.)
+Sources: Not-pong base game
 
 This game was built with [NEST](NEST.md).
